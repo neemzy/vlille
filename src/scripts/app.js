@@ -6,7 +6,7 @@
 
         app = React.renderComponent(
             Map({
-                url: 'http://localhost/vlille/proxy.php',
+                url: window.location.href.replace(/\/$/, '') + '/proxy.php',
                 details: '?id='
             }),
 

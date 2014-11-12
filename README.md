@@ -12,7 +12,7 @@ npm install
 gulp
 ```
 
-The last command crafts assets in the `dist/` folder and starts a livereload server for development. Use the `--dist` option to output minified assets and avoid that last part. Enjoy !
+Enjoy !
 
 ## Proxy
 
