@@ -20,7 +20,12 @@ Since the API in use is forbidding cross-domain AJAX requests, a small PHP proxy
 
 ## Open data FTW
 
-This app avoids using proprietary software to handle the map generation. It makes use of the power trio :
+This app avoids any proprietary software to handle map generation, making use of the power trio :
 - [OpenStreetMap](https://www.openstreetmap.org), a collaborative mapping database
 - [Leaflet](http://leafletjs.com/), a JS map rendering library
 - [Mapbox](https://www.mapbox.com/), a map tiles and styles provider
+
+## Credits
+
+- Code : [neemzy](https://github.com/neemzy)
+- [This article](http://mouth.sigill.org/acces-aux-donnees-vlille/) for disclosing the API's existence
