@@ -141,32 +141,31 @@ module.exports = React.createClass({
 
             // Attach callback to fetch realtime data
             marker.on('click', function (event) {
-                this.fetchDetails(event.target.id).then(
-                    function (response) {
-                        this.parseDetails(response).then(
-                            function (details) {
-                                var content = [
-                                    '<b>Adresse :</b> ' + details.adress,
-                                    '<b>Vélos disponibles :</b> ' + details.bikes,
-                                    '<b>Emplacements libres :</b> ' + details.attachs,
-                                    '<b>Borne CB :</b> ' + ('AVEC_TPE' == details.paiement ? 'Oui' : 'Non'),
-                                    '<b>Active :</b> ' + (!parseInt(details.status) ? 'Oui' : 'Non'),
-                                    '<b>Dernière mise à jour :</b> ' + details.lastupd
-                                ];
+                this.fetchDetails(event.target.id)
+                    .then(
+                        function (response) {
+                            return this.parseDetails(response);
+                        }.bind(this)
+                    )
+                    .then(
+                        function (details) {
+                            var content = [
+                                '<b>Adresse :</b> ' + details.adress,
+                                '<b>Vélos disponibles :</b> ' + details.bikes,
+                                '<b>Emplacements libres :</b> ' + details.attachs,
+                                '<b>Borne CB :</b> ' + ('AVEC_TPE' == details.paiement ? 'Oui' : 'Non'),
+                                '<b>Active :</b> ' + (!parseInt(details.status) ? 'Oui' : 'Non'),
+                                '<b>Dernière mise à jour :</b> ' + details.lastupd
+                            ];
 
-                                event.target.bindPopup('<h3>' + event.target.options.title + '</h3>' + content.join('<br />')).openPopup();
-                            }.bind(this),
-
-                            function (err) {
-                                console.error(err);
-                            }
-                        );
-                    }.bind(this),
-
-                    function (err) {
-                        console.log(err);
-                    }
-                );
+                            event.target.bindPopup('<h3>' + event.target.options.title + '</h3>' + content.join('<br />')).openPopup();
+                        }
+                    )
+                    .catch(
+                        function (err) {
+                            console.error(err);
+                        }
+                    );
             }.bind(this));
 
             marker.addTo(map);
@@ -197,24 +196,23 @@ module.exports = React.createClass({
      * @return void
      */
     componentWillMount: function() {
-        this.fetchStations().then(
-            function (response) {
-                this.parseStations(response).then(
-                    function (state) {
-                        this.setState(state);
-                        this.initMap();
-                    }.bind(this),
-
-                    function (err) {
-                        console.error(err);
-                    }
-                );
-            }.bind(this),
-
-            function (err) {
-                console.log(err);
-            }
-        );
+        this.fetchStations()
+            .then(
+                function (response) {
+                    return this.parseStations(response);
+                }.bind(this)
+            )
+            .then(
+                function (state) {
+                    this.setState(state);
+                    this.initMap();
+                }.bind(this)
+            )
+            .catch(
+                function (err) {
+                    console.error(err);
+                }
+            );
     },
 
 
