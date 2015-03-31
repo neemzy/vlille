@@ -1,4 +1,4 @@
-# Vlille
+# V'Lille
 
 Small [React](https://facebook.github.io/react/) POC app displaying a map with bike renting stations in Lille, France.
 
