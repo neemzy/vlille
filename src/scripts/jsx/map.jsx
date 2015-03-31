@@ -8,12 +8,8 @@ var React = require('react'),
 leaflet.Icon.Default.imagePath = 'dist/images/';
 
 module.exports = React.createClass({
-    /**
-     * @var string Map DOM element id
-     */
+    /** @type string Map DOM element id */
     id: 'map',
-
-
 
     /**
      * Fetches stations from XML API
@@ -36,8 +32,6 @@ module.exports = React.createClass({
             });
         }.bind(this));
     },
-
-
 
     /**
      * Parses stations data from XML
@@ -68,8 +62,6 @@ module.exports = React.createClass({
         });
     },
 
-
-
     /**
      * Fetches a station's details from XML API
      *
@@ -91,8 +83,6 @@ module.exports = React.createClass({
             })
         }.bind(this));
     },
-
-
 
     /**
      * Parses a station's data from XML
@@ -117,12 +107,8 @@ module.exports = React.createClass({
         });
     },
 
-
-
     /**
      * Initializes Leaflet map and markers
-     *
-     * @return void
      */
     initMap: function() {
         var map = leaflet.map(this.id).setView([this.state.lat, this.state.lng], this.state.zoom);
@@ -172,12 +158,8 @@ module.exports = React.createClass({
         }
     },
 
-
-
     /**
-     * Defines React component initial state
-     *
-     * @return Object
+     * @return {Object}
      */
     getInitialState: function() {
         return {
@@ -188,13 +170,6 @@ module.exports = React.createClass({
         };
     },
 
-
-
-    /**
-     * React callback upon component mount triggering
-     *
-     * @return void
-     */
     componentWillMount: function() {
         this.fetchStations()
             .then(
@@ -215,12 +190,8 @@ module.exports = React.createClass({
             );
     },
 
-
-
     /**
-     * React component rendering method
-     *
-     * @return JSX
+     * @return {Object}
      */
     render: function() {
         return (
