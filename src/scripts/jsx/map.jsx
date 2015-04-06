@@ -8,13 +8,13 @@ var React = require('react'),
 leaflet.Icon.Default.imagePath = 'dist/images/';
 
 module.exports = React.createClass({
-    /** @type string Map DOM element id */
+    /** @type {String} Map DOM element id */
     id: 'map',
 
     /**
      * Fetches stations from XML API
      *
-     * @return Promise
+     * @return {Promise}
      */
     fetchStations: function() {
         return new Promise(function (resolve, reject) {
@@ -36,7 +36,7 @@ module.exports = React.createClass({
     /**
      * Parses stations data from XML
      *
-     * @return Promise
+     * @return {Promise}
      */
     parseStations: function(xml) {
         return new Promise(function (resolve, reject) {
@@ -65,7 +65,7 @@ module.exports = React.createClass({
     /**
      * Fetches a station's details from XML API
      *
-     * @return Promise
+     * @return {Promise}
      */
     fetchDetails: function(id) {
         return new Promise(function (resolve, reject) {
@@ -87,7 +87,7 @@ module.exports = React.createClass({
     /**
      * Parses a station's data from XML
      *
-     * @return Promise
+     * @return {Promise}
      */
     parseDetails: function(xml) {
         return new Promise(function (resolve, reject) {
